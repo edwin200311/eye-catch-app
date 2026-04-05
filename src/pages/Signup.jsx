@@ -6,13 +6,47 @@ function Signup() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  // ⏳ 로딩 상태 추가 (가입 버튼 연타 방지)
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSignup = (e) => {
+  // 🚀 서버로 회원가입 정보 전송 (비동기 함수로 변경)
+  const handleSignup = async (e) => {
     e.preventDefault();
-    const userData = { name, email, password };
-    localStorage.setItem('eyeCatchUser', JSON.stringify(userData));
-    alert('회원가입이 완료되었습니다! 로그인 페이지로 이동합니다.');
-    navigate('/login');
+    setIsLoading(true); // 로딩 시작
+
+    try {
+      // 백엔드(FastAPI) 엔드포인트로 POST 요청 보내기
+      const response = await fetch('https://succeedable-untabled-dewitt.ngrok-free.dev/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          // 💡 ngrok 무료 버전 사용 시 API 요청이 차단되는 것을 막아주는 마법의 헤더!
+          'ngrok-skip-browser-warning': '69420', 
+        },
+        // FastAPI 서버가 기대하는 데이터 형태로 전송 (필요시 백엔드 변수명에 맞게 수정하세요)
+        body: JSON.stringify({ 
+          name: name, 
+          email: email, 
+          password: password 
+        }),
+      });
+
+      if (response.ok) {
+        // 성공 시 (HTTP 상태 코드 200~299)
+        alert('회원가입이 완료되었습니다! 로그인 페이지로 이동합니다.');
+        navigate('/login');
+      } else {
+        // 실패 시 (이메일 중복 등 백엔드에서 에러를 뱉었을 때)
+        const errorData = await response.json();
+        alert(`가입 실패: ${errorData.detail || '입력하신 정보를 다시 확인해주세요.'}`);
+      }
+    } catch (error) {
+      // 서버가 꺼져있거나 인터넷 연결이 끊겼을 때
+      console.error('Signup Error:', error);
+      alert('서버와 통신할 수 없습니다. 잠시 후 다시 시도해주세요.');
+    } finally {
+      setIsLoading(false); // 로딩 종료
+    }
   };
 
   return (
@@ -58,8 +92,13 @@ function Signup() {
             </div>
 
             <div className="pt-4">
-              <button type="submit" className="w-full text-center py-4 rounded-xl text-on-primary font-bold text-lg shadow-lg active:scale-95 transition-all" style={{ background: 'linear-gradient(135deg, #003d9b 0%, #0052cc 100%)' }}>
-                회원가입 완료
+              <button 
+                type="submit" 
+                disabled={isLoading}
+                className={`w-full text-center py-4 rounded-xl text-on-primary font-bold text-lg shadow-lg transition-all ${isLoading ? 'opacity-70 cursor-not-allowed' : 'active:scale-95'}`} 
+                style={{ background: 'linear-gradient(135deg, #003d9b 0%, #0052cc 100%)' }}
+              >
+                {isLoading ? '서버와 통신 중...' : '회원가입 완료'}
               </button>
             </div>
           </form>
