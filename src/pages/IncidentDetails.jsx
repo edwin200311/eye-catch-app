@@ -15,7 +15,7 @@ function IncidentDetails() {
 
       <main className="pt-24 max-w-5xl mx-auto px-4 space-y-8">
         <div className="relative aspect-video bg-black rounded-3xl overflow-hidden shadow-lg">
-          <img className="w-full h-full object-cover opacity-80" src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&q=80" alt="위험 상황" />
+          <img className="w-full h-full object-cover opacity-80" src="https://images.unsplash.com/photo-1596131398991-b94f928d85a1?auto=format&fit=crop&q=80" alt="아이 위험 구역 접근" />
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             <div className="w-32 h-32 border-4 border-red-500 rounded-full animate-pulse flex items-center justify-center">
               <span className="material-symbols-outlined text-red-500 text-4xl">warning</span>
@@ -24,13 +24,13 @@ function IncidentDetails() {
         </div>
 
         <div className="bg-white p-8 rounded-3xl shadow-sm">
-          <span className="inline-block px-3 py-1 bg-red-100 text-red-800 text-xs font-bold rounded-full mb-3">위험 등급: 심각</span>
-          <h1 className="text-3xl font-extrabold mb-2">북측 창고 무단 접근</h1>
+          <span className="inline-block px-3 py-1 bg-red-100 text-red-800 text-xs font-bold rounded-full mb-3">알림: 주의 필요</span>
+          <h1 className="text-3xl font-extrabold mb-2">계단 위험 구역 접근</h1>
           <p className="text-slate-500 mb-6">감지 시간: 오후 5:45:12</p>
-          
+
           <h3 className="font-bold text-lg mb-2">상세 내용</h3>
           <p className="text-slate-600 leading-relaxed">
-            인공지능이 활성화된 제한 구역 내에서 미승인 인원의 실루엣을 감지했습니다. 자동 경보 시퀀스가 시작되었으며, 보안 팀에 알림이 전송되었습니다.
+            설정된 위험 구역(계단 주변)에서 아이의 움직임이 감지되었습니다. 혹시 모를 안전사고를 예방하기 위해 보호자님의 실시간 확인이 필요합니다.
           </p>
         </div>
       </main>

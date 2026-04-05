@@ -18,14 +18,14 @@ function Zone() {
 
       <main className="max-w-7xl mx-auto px-4 md:px-8 py-8">
         <div className="mb-8">
-          <h2 className="text-3xl font-extrabold font-headline tracking-tight text-on-surface">위험 구역</h2>
-          <p className="text-on-surface-variant mt-1">AI 탐지가 즉각적인 알림을 트리거할 영역을 정의합니다.</p>
+          <h2 className="text-3xl font-extrabold font-headline tracking-tight text-on-surface">위험 구역 설정</h2>
+          <p className="text-on-surface-variant mt-1">아이가 접근하면 즉시 알림을 받을 위험 구역(주방, 베란다 등)을 설정하세요.</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           <div className="lg:col-span-8 flex flex-col gap-4">
             <div className="relative aspect-video rounded-3xl overflow-hidden bg-surface-dim group cursor-crosshair">
-              <img alt="공장 바닥" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnTVKWflIQRksvfHaeMdz6kYDHnGb1LTf5m82duTAGLucAcxK9eLWZM_c3n1eqPM5Ai909lriUTjCl3TWAZW_jn7XfP-V9JuaFzPIlU-3uBkPuVNJg0qczP-OiOPepg2zZbeUqRFz_AMmKXhSfylZeBayI31kgIwsXhhJ_2I9vog_k9oI7oKO5hjMRx2bE0jbyKXkOf4cR37Px-oirJTSJ2CdYicW4dpg40I0bEkkkQtdysbnoQua3lIi1nyXKc2_Z-h_sXIIu6uQ" />
+              <img alt="아이방 구조" className="w-full h-full object-cover" src="https://images.unsplash.com/photo-1519340333755-56e9c1d04579?auto=format&fit=crop&q=80" />
               
               <svg className="absolute inset-0 w-full h-full pointer-events-none">
                 <polygon className="fill-tertiary/20 stroke-tertiary stroke-2" points="150,100 400,120 380,300 120,280" />
@@ -65,7 +65,7 @@ function Zone() {
                   <div className="flex items-center gap-3">
                     <div className="w-2 h-8 bg-tertiary rounded-full"></div>
                     <div>
-                      <p className="font-bold text-sm">로봇 팔 알파</p>
+                      <p className="font-bold text-sm">주방 인덕션 주변</p>
                       <p className="text-xs text-on-surface-variant">높은 민감도</p>
                     </div>
                   </div>
@@ -74,7 +74,7 @@ function Zone() {
                   <div className="flex items-center gap-3">
                     <div className="w-2 h-8 bg-primary rounded-full"></div>
                     <div>
-                      <p className="font-bold text-sm">하역장 B</p>
+                      <p className="font-bold text-sm">베란다 출입문</p>
                       <p className="text-xs text-on-surface-variant">표준 알림</p>
                     </div>
                   </div>

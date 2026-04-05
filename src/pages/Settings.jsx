@@ -1,12 +1,13 @@
+// src/pages/Settings.jsx 전체 교체
 import React, { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 
 function Settings() {
   const navigate = useNavigate();
-  const [profileName, setProfileName] = useState('사용자');
-  const [profileEmail, setProfileEmail] = useState('user@eyecatch.ai');
+  const [profileName, setProfileName] = useState('보호자');
+  const [profileEmail, setProfileEmail] = useState('parent@eyecatch.ai');
   
-  // 토글 버튼들의 상태 관리 (켜짐/꺼짐)
+  // 토글 버튼들의 상태 관리
   const [isAlertOn, setIsAlertOn] = useState(true);
   const [isDarkMode, setIsDarkMode] = useState(false);
 
@@ -52,13 +53,13 @@ function Settings() {
       {/* 🌙 상단 헤더 */}
       <header className="fixed top-0 w-full z-50 bg-slate-50/70 dark:bg-slate-900/70 backdrop-blur-xl shadow-sm dark:shadow-none flex justify-between items-center px-6 py-4 transition-colors duration-300">
         <div className="flex items-center gap-2">
-          <span className="material-symbols-outlined text-blue-700 dark:text-blue-400">visibility</span>
+          <span className="material-symbols-outlined text-blue-700 dark:text-blue-400">home_pin</span>
           <span className="text-xl font-extrabold tracking-tighter text-blue-800 dark:text-blue-300 font-headline">Eye Catch</span>
         </div>
         <div className="flex items-center gap-4">
           <button className="material-symbols-outlined text-slate-500 dark:text-slate-400 hover:opacity-80 transition-opacity">notifications</button>
-          <div className="w-8 h-8 rounded-full overflow-hidden border border-outline-variant/30">
-            <img alt="Profile" className="w-full h-full object-cover" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80" />
+          <div className="w-8 h-8 rounded-full overflow-hidden border border-outline-variant/30 flex items-center justify-center bg-slate-100 dark:bg-slate-700">
+            <span className="material-symbols-outlined text-slate-400">person</span>
           </div>
         </div>
       </header>
@@ -67,9 +68,9 @@ function Settings() {
         {/* 👤 프로필 카드 영역 */}
         <section className="flex flex-col md:flex-row items-center md:items-start gap-8 bg-surface-container-lowest dark:bg-slate-800 p-8 rounded-[3rem] shadow-[0_4px_20px_rgba(0,24,72,0.04)] dark:shadow-none transition-colors duration-300">
           <div className="relative">
+            {/* 산업용 느낌의 남성 이미지 -> 중립적인 가족/아동 아이콘으로 대체 권장 (현재는 언스플래쉬 중립 이미지로 교체) */}
             <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-primary-fixed dark:border-blue-900/50">
-              {/* 기본 프로필 이미지 삽입 */}
-              <img alt="프로필" className="w-full h-full object-cover" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80" />
+              <img alt="프로필" className="w-full h-full object-cover" src="https://images.unsplash.com/photo-1596131398991-b94f928d85a1?auto=format&fit=crop&q=80" />
             </div>
             <button className="absolute bottom-1 right-1 bg-primary text-on-primary p-2 rounded-full shadow-lg hover:scale-105 transition-transform">
               <span className="material-symbols-outlined text-sm">edit</span>
@@ -77,11 +78,12 @@ function Settings() {
           </div>
           
           <div className="flex-1 text-center md:text-left">
-            <h1 className="text-3xl font-extrabold font-headline tracking-tight text-on-surface dark:text-white">{profileName}</h1>
-            <p className="text-on-surface-variant dark:text-slate-400 font-medium mt-1">안전관리 총괄 책임자</p>
+            <h1 className="text-3xl font-extrabold font-headline tracking-tight text-on-surface dark:text-white">{profileName} 보호자님</h1>
+            {/* 맘앤대디 안심 계정*/}
+            <p className="text-on-surface-variant dark:text-slate-400 font-medium mt-1">맘앤대디 안심 계정</p>
             <div className="mt-4 flex flex-wrap justify-center md:justify-start gap-2">
-              <span className="px-3 py-1 bg-blue-50 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300 text-xs font-bold rounded-full">본사 소속</span>
-              <span className="px-3 py-1 bg-surface-container-high dark:bg-slate-700 text-on-surface-variant dark:text-slate-300 text-xs font-bold rounded-full">Level 4 Access</span>
+              <span className="px-3 py-1 bg-blue-50 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300 text-xs font-bold rounded-full">패밀리 리더</span>
+              <span className="px-3 py-1 bg-surface-container-high dark:bg-slate-700 text-on-surface-variant dark:text-slate-300 text-xs font-bold rounded-full">관리자 권한</span>
             </div>
           </div>
           
@@ -104,24 +106,17 @@ function Settings() {
               <div className="space-y-4">
                 <div className="flex justify-between items-center p-4 bg-surface-container-low dark:bg-slate-700/50 rounded-xl hover:bg-surface-container-high dark:hover:bg-slate-700 transition-colors cursor-pointer">
                   <div>
-                    <p className="text-xs text-on-surface-variant dark:text-slate-400 font-bold">프로필 정보 수정</p>
+                    <p className="text-xs text-on-surface-variant dark:text-slate-400 font-bold">보호자 정보 수정</p>
                     <p className="text-sm font-medium dark:text-white">{profileName}</p>
                   </div>
                   <span className="material-symbols-outlined text-slate-400">person</span>
                 </div>
                 <div className="flex justify-between items-center p-4 bg-surface-container-low dark:bg-slate-700/50 rounded-xl">
                   <div>
-                    <p className="text-xs text-on-surface-variant dark:text-slate-400 font-bold">이메일 주소</p>
+                    <p className="text-xs text-on-surface-variant dark:text-slate-400 font-bold">비상 연락처 (이메일)</p>
                     <p className="text-sm font-medium dark:text-white">{profileEmail}</p>
                   </div>
                   <span className="material-symbols-outlined text-slate-400">chevron_right</span>
-                </div>
-                <div className="flex justify-between items-center p-4 bg-surface-container-low dark:bg-slate-700/50 rounded-xl">
-                  <div>
-                    <p className="text-xs text-on-surface-variant dark:text-slate-400 font-bold">2단계 인증</p>
-                    <p className="text-sm font-medium text-primary dark:text-blue-400">활성화됨</p>
-                  </div>
-                  <span className="material-symbols-outlined text-slate-400">verified_user</span>
                 </div>
               </div>
             </div>
@@ -129,18 +124,18 @@ function Settings() {
 
           {/* 환경 설정 카테고리 */}
           <div className="md:col-span-12 space-y-4">
-            <h3 className="text-lg font-bold font-headline px-2 dark:text-white">환경 설정</h3>
+            <h3 className="text-lg font-bold font-headline px-2 dark:text-white">아이 안심 환경 설정</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               
-              {/* 1. 알림 및 경고 (토글) */}
+              {/* 1. 알림 및 경고 토글 */}
               <div onClick={() => setIsAlertOn(!isAlertOn)} className="bg-surface-container-lowest dark:bg-slate-800 p-5 rounded-4xl flex items-center justify-between hover:bg-surface-container-low dark:hover:bg-slate-700 transition-colors group cursor-pointer shadow-sm">
                 <div className="flex items-center gap-4">
                   <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${isAlertOn ? 'bg-blue-50 text-blue-700 dark:bg-blue-900/40 dark:text-blue-400' : 'bg-slate-100 text-slate-500 dark:bg-slate-700'}`}>
                     <span className="material-symbols-outlined">{isAlertOn ? 'notifications_active' : 'notifications_off'}</span>
                   </div>
                   <div>
-                    <p className="font-bold text-sm dark:text-white">알림 및 경고</p>
-                    <p className="text-xs text-on-surface-variant dark:text-slate-400">사고 발생 시 즉각 알림 수신</p>
+                    <p className="font-bold text-sm dark:text-white">아이 활동 알림</p>
+                    <p className="text-xs text-on-surface-variant dark:text-slate-400">위험 구역 접근 및 울음소리 감지 시 즉시 알림</p>
                   </div>
                 </div>
                 <div className={`w-12 h-7 rounded-full relative flex items-center px-1 transition-colors duration-300 ${isAlertOn ? 'bg-primary dark:bg-blue-600' : 'bg-slate-300 dark:bg-slate-600'}`}>
@@ -148,15 +143,15 @@ function Settings() {
                 </div>
               </div>
 
-              {/* 2. 다크 모드 (토글) */}
+              {/* 2. 다크 모드 토글 */}
               <div onClick={toggleDarkMode} className="bg-surface-container-lowest dark:bg-slate-800 p-5 rounded-4xl flex items-center justify-between hover:bg-surface-container-low dark:hover:bg-slate-700 transition-colors group cursor-pointer shadow-sm">
                 <div className="flex items-center gap-4">
                   <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${isDarkMode ? 'bg-indigo-50 text-indigo-700 dark:bg-indigo-900/40 dark:text-indigo-400' : 'bg-slate-100 text-slate-700 dark:bg-slate-700 dark:text-slate-300'}`}>
                     <span className="material-symbols-outlined">{isDarkMode ? 'dark_mode' : 'light_mode'}</span>
                   </div>
                   <div>
-                    <p className="font-bold text-sm dark:text-white">다크 모드</p>
-                    <p className="text-xs text-on-surface-variant dark:text-slate-400">어두운 테마로 화면 보기</p>
+                    <p className="font-bold text-sm dark:text-white">야간 모드 (다크)</p>
+                    <p className="text-xs text-on-surface-variant dark:text-slate-400">어두운 방에서 모니터링 시 눈 보호</p>
                   </div>
                 </div>
                 <div className={`w-12 h-7 rounded-full relative flex items-center px-1 transition-colors duration-300 ${isDarkMode ? 'bg-indigo-600' : 'bg-slate-300 dark:bg-slate-600'}`}>
@@ -171,22 +166,22 @@ function Settings() {
                     <span className="material-symbols-outlined">language</span>
                   </div>
                   <div>
-                    <p className="font-bold text-sm dark:text-white">언어 설정</p>
+                    <p className="font-bold text-sm dark:text-white">앱 언어 설정</p>
                     <p className="text-xs text-on-surface-variant dark:text-slate-400">한국어 (Korean)</p>
                   </div>
                 </div>
                 <span className="material-symbols-outlined text-slate-300 dark:text-slate-500">chevron_right</span>
               </div>
 
-              {/* 4. 데이터 보관 정책 */}
+              {/* 4. 성장 기록 및 추억 저장소 */}
               <div className="bg-surface-container-lowest dark:bg-slate-800 p-5 rounded-4xl flex items-center justify-between hover:bg-surface-container-low dark:hover:bg-slate-700 transition-colors group cursor-pointer shadow-sm">
                 <div className="flex items-center gap-4">
                   <div className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center text-slate-700 dark:text-slate-300">
-                    <span className="material-symbols-outlined">storage</span>
+                    <span className="material-symbols-outlined">favorite</span>
                   </div>
                   <div>
-                    <p className="font-bold text-sm dark:text-white">데이터 보관 정책</p>
-                    <p className="text-xs text-on-surface-variant dark:text-slate-400">로그 기록 90일 보관</p>
+                    <p className="font-bold text-sm dark:text-white">성장 기록 및 추억 저장소</p>
+                    <p className="text-xs text-on-surface-variant dark:text-slate-400">감지된 활동 영상 90일 보관</p>
                   </div>
                 </div>
                 <span className="material-symbols-outlined text-slate-300 dark:text-slate-500">chevron_right</span>
@@ -204,22 +199,22 @@ function Settings() {
         </div>
       </main>
 
-      {/* 🌙 하단 네비게이션 바 (메인 화면과 완벽히 일치하도록 수정됨) */}
-      <nav className="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-4 pt-2 bg-white dark:bg-slate-800 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] dark:shadow-none dark:border-t dark:border-slate-700 z-50 rounded-t-xl transition-colors duration-300">
-        <Link to="/main" className="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-5 py-2 hover:text-blue-600 dark:hover:text-blue-300 transition-all">
-          <span className="material-symbols-outlined">videocam</span>
-          <span className="text-xs font-medium">모니터링</span>
+      {/* 🌙 하단 네비게이션 동기화 */}
+      <nav className="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-4 pt-2 bg-white dark:bg-slate-800 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] dark:shadow-none dark:border-t dark:border-slate-700 z-50 rounded-t-xl transition-colors duration-300 border-t border-slate-100 dark:border-slate-700">
+        <Link to="/main" className="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-5 py-2 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200">
+          <span className="material-symbols-outlined">child_care</span>
+          <span className="text-xs font-medium">아이 안심</span>
         </Link>
-        <Link to="/zone" className="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-5 py-2 hover:text-blue-600 dark:hover:text-blue-300 transition-all">
+        <Link to="/zone" className="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-5 py-2 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200">
           <span className="material-symbols-outlined">grid_view</span>
-          <span className="text-xs font-medium">구역</span>
+          <span className="text-xs font-medium">위험 구역</span>
         </Link>
-        <Link to="/history" className="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-5 py-2 hover:text-blue-600 dark:hover:text-blue-300 transition-all">
-          <span className="material-symbols-outlined">warning</span>
-          <span className="text-xs font-medium">사건 내역</span>
+        <Link to="/history" className="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-5 py-2 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200">
+          <span className="material-symbols-outlined">history</span>
+          <span className="text-xs font-medium">활동 기록</span>
         </Link>
         {/* 설정 탭 활성화(Active) 표시 */}
-        <Link to="/settings" className="flex flex-col items-center justify-center bg-blue-50 dark:bg-blue-900/30 text-blue-800 dark:text-blue-100 rounded-2xl px-5 py-2 transition-all">
+        <Link to="/settings" className="flex flex-col items-center justify-center bg-blue-50 dark:bg-blue-900/30 text-blue-800 dark:text-blue-100 rounded-2xl px-5 py-2 transition-all duration-200">
           <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>settings</span>
           <span className="text-xs font-medium">설정</span>
         </Link>

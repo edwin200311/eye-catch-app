@@ -63,7 +63,7 @@ function Signup() {
         <div className="w-full max-w-md">
           <div className="mb-10 text-center md:text-left">
             <h1 className="font-headline text-4xl font-extrabold tracking-tight text-on-surface mb-3">새로운 계정 만들기</h1>
-            <p className="text-on-surface-variant leading-relaxed">AI 기반 안전 모니터링 시스템, Eye Catch와 함께 사고 없는 현장을 만들어보세요.</p>
+            <p className="text-on-surface-variant leading-relaxed">AI 안심 베이비 모니터 Eye Catch와 함께 안심하고 출근하세요.</p>
           </div>
 
           <form onSubmit={handleSignup} className="bg-surface-container-lowest rounded-xl p-8 shadow-lg space-y-6">

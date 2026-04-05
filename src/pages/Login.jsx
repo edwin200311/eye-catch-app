@@ -25,16 +25,16 @@ function Login() {
         <div className="w-full max-w-md z-10">
           <div className="flex flex-col items-center mb-12">
             <div className="w-16 h-16 bg-surface-container-lowest rounded-full flex items-center justify-center shadow-sm mb-4">
-              <span className="material-symbols-outlined text-primary text-4xl">visibility</span>
+              <span className="material-symbols-outlined text-primary text-4xl">child_care</span>
             </div>
             <h1 className="font-headline text-3xl font-extrabold tracking-tighter text-on-surface">Eye Catch</h1>
-            <p className="text-on-surface-variant text-sm mt-2 font-medium">안전을 지키는 스마트한 시선</p>
+            <p className="text-on-surface-variant text-sm mt-2 font-medium">우리 아이를 지키는 스마트한 시선</p>
           </div>
 
           <div className="bg-surface-container-lowest rounded-xl p-8 shadow-lg">
             <div className="mb-8">
               <h2 className="text-2xl font-bold font-headline text-on-surface mb-1">로그인</h2>
-              <p className="text-on-surface-variant text-sm">계정 정보를 입력하여 관리 센터에 접속하세요.</p>
+              <p className="text-on-surface-variant text-sm">보호자 계정으로 로그인하여 아이의 상태를 확인하세요.</p>
             </div>
             
             <form onSubmit={handleLogin} className="space-y-6">
