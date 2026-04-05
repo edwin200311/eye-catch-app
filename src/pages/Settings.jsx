@@ -199,22 +199,21 @@ function Settings() {
         </div>
       </main>
 
-      {/* 🌙 하단 네비게이션 동기화 */}
-      <nav className="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-4 pt-2 bg-white dark:bg-slate-800 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] dark:shadow-none dark:border-t dark:border-slate-700 z-50 rounded-t-xl transition-colors duration-300 border-t border-slate-100 dark:border-slate-700">
-        <Link to="/main" className="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-5 py-2 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200">
-          <span className="material-symbols-outlined">child_care</span>
-          <span className="text-xs font-medium">아이 안심</span>
+      {/* 하단 네비게이션 */}
+      <nav className="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-4 pt-2 bg-white dark:bg-slate-800 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] dark:shadow-none dark:border-t dark:border-slate-700 z-50 rounded-t-xl transition-colors duration-300">
+        <Link to="/main" className="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-5 py-2 hover:text-blue-600 dark:hover:text-blue-300 transition-all">
+          <span className="material-symbols-outlined">videocam</span>
+          <span className="text-xs font-medium">모니터링</span>
         </Link>
-        <Link to="/zone" className="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-5 py-2 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200">
+        <Link to="/zone" className="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-5 py-2 hover:text-blue-600 dark:hover:text-blue-300 transition-all">
           <span className="material-symbols-outlined">grid_view</span>
-          <span className="text-xs font-medium">위험 구역</span>
+          <span className="text-xs font-medium">구역</span>
         </Link>
-        <Link to="/history" className="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-5 py-2 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200">
-          <span className="material-symbols-outlined">history</span>
-          <span className="text-xs font-medium">활동 기록</span>
+        <Link to="/history" className="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-5 py-2 hover:text-blue-600 dark:hover:text-blue-300 transition-all">
+          <span className="material-symbols-outlined">warning</span>
+          <span className="text-xs font-medium">사건 내역</span>
         </Link>
-        {/* 설정 탭 활성화(Active) 표시 */}
-        <Link to="/settings" className="flex flex-col items-center justify-center bg-blue-50 dark:bg-blue-900/30 text-blue-800 dark:text-blue-100 rounded-2xl px-5 py-2 transition-all duration-200">
+        <Link to="/settings" className="flex flex-col items-center justify-center bg-blue-50 dark:bg-blue-900/30 text-blue-800 dark:text-blue-100 rounded-2xl px-5 py-2 transition-all">
           <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>settings</span>
           <span className="text-xs font-medium">설정</span>
         </Link>

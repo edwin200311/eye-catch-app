@@ -15,7 +15,7 @@ function IncidentDetails() {
 
       <main className="pt-24 max-w-5xl mx-auto px-4 space-y-8">
         <div className="relative aspect-video bg-black rounded-3xl overflow-hidden shadow-lg">
-          <img className="w-full h-full object-cover opacity-80" src="https://images.unsplash.com/photo-1596131398991-b94f928d85a1?auto=format&fit=crop&q=80" alt="아이 위험 구역 접근" />
+          <img className="w-full h-full object-cover opacity-80" src="https://images.unsplash.com/photo-1519689680058-324335c77eba?w=800&auto=format&fit=crop&q=80" alt="아이 위험 구역 접근" />
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             <div className="w-32 h-32 border-4 border-red-500 rounded-full animate-pulse flex items-center justify-center">
               <span className="material-symbols-outlined text-red-500 text-4xl">warning</span>

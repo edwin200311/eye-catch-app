@@ -20,8 +20,8 @@ function History() {
           {/* 로그 카드 수정 */}
           <div className="bg-surface-container-lowest dark:bg-slate-800 rounded-xl p-4 flex flex-col md:flex-row gap-6 shadow-sm hover:shadow-md transition-all duration-300">
             <div className="relative w-full md:w-64 h-40 bg-slate-200 dark:bg-slate-700 rounded-lg overflow-hidden shrink-0">
-              {/* 공장 이미지 -> 계단근처 아이 이미지로 교체 */}
-              <img src="https://images.unsplash.com/photo-1596131398991-b94f928d85a1?auto=format&fit=crop&q=80" className="w-full h-full object-cover" alt="로그 이미지" />
+              {/* 계단근처 아이 이미지*/}
+              <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?w=800&auto=format&fit=crop&q=80" className="w-full h-full object-cover" alt="로그 이미지" />
               <div className="absolute top-3 left-3 bg-blue-600 px-2 py-1 rounded text-[10px] font-bold text-white uppercase shadow-sm">AI 탐지</div>
             </div>
             <div className="flex flex-col justify-between py-1 grow">
@@ -41,19 +41,19 @@ function History() {
         </div>
       </main>
 
-      {/* 하단 네비게이션 바 동기화 */}
+      {/* 하단 네비게이션 바 */}
       <nav className="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-4 pt-2 bg-white dark:bg-slate-800 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] dark:shadow-none dark:border-t dark:border-slate-700 z-50 rounded-t-xl transition-colors duration-300">
         <Link to="/main" className="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-5 py-2 hover:text-blue-600 dark:hover:text-blue-300 transition-all">
-          <span className="material-symbols-outlined">child_care</span>
-          <span className="text-xs font-medium">아이 안심</span>
+          <span className="material-symbols-outlined">videocam</span>
+          <span className="text-xs font-medium">모니터링</span>
         </Link>
         <Link to="/zone" className="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-5 py-2 hover:text-blue-600 dark:hover:text-blue-300 transition-all">
           <span className="material-symbols-outlined">grid_view</span>
-          <span className="text-xs font-medium">위험 구역</span>
+          <span className="text-xs font-medium">구역</span>
         </Link>
         <Link to="/history" className="flex flex-col items-center justify-center bg-blue-50 dark:bg-blue-900/30 text-blue-800 dark:text-blue-100 rounded-2xl px-5 py-2 transition-all">
-          <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>history</span>
-          <span className="text-xs font-medium">활동 기록</span>
+          <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>warning</span>
+          <span className="text-xs font-medium">사건 내역</span>
         </Link>
         <Link to="/settings" className="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-5 py-2 hover:text-blue-600 dark:hover:text-blue-300 transition-all">
           <span className="material-symbols-outlined">settings</span>

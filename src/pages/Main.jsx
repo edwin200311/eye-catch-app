@@ -94,7 +94,7 @@ function Main() {
               <div className="flex items-center gap-4 bg-surface-container-low dark:bg-slate-700 p-3 rounded-lg border-l-4 border-error transition-colors duration-300">
                 <div className="w-16 h-12 rounded bg-slate-200 dark:bg-slate-600 overflow-hidden shrink-0 relative">
                   {/* 알림 이미지 -> 계단근처 아이/현관문 열리는 이미지로 교체 */}
-                  <img src="https://images.unsplash.com/photo-1596131398991-b94f928d85a1?auto=format&fit=crop&q=80" className="w-full h-full object-cover" alt="알림 이미지" />
+                  <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?w=800&auto=format&fit=crop&q=80" className="w-full h-full object-cover" alt="알림 이미지" />
                 </div>
                 <div className="grow">
                   <p className="text-sm font-semibold text-error">아이방 움직임 감지 (주의)</p>
@@ -134,16 +134,16 @@ function Main() {
       {/* 하단 네비게이션 바 수정 */}
       <nav className="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-4 pt-2 bg-white dark:bg-slate-800 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] dark:shadow-none dark:border-t dark:border-slate-700 z-50 rounded-t-xl transition-colors duration-300">
         <Link to="/main" className="flex flex-col items-center justify-center bg-blue-50 dark:bg-blue-900/30 text-blue-800 dark:text-blue-100 rounded-2xl px-5 py-2 transition-all">
-          <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>child_care</span>
-          <span className="text-xs font-medium">아이 안심</span>
+          <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>videocam</span>
+          <span className="text-xs font-medium">모니터링</span>
         </Link>
         <Link to="/zone" className="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-5 py-2 hover:text-blue-600 dark:hover:text-blue-300 transition-all">
           <span className="material-symbols-outlined">grid_view</span>
-          <span className="text-xs font-medium">위험 구역</span>
+          <span className="text-xs font-medium">구역</span>
         </Link>
         <Link to="/history" className="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-5 py-2 hover:text-blue-600 dark:hover:text-blue-300 transition-all">
-          <span className="material-symbols-outlined">history</span>
-          <span className="text-xs font-medium">활동 기록</span>
+          <span className="material-symbols-outlined">warning</span>
+          <span className="text-xs font-medium">사건 내역</span>
         </Link>
         <Link to="/settings" className="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-5 py-2 hover:text-blue-600 dark:hover:text-blue-300 transition-all">
           <span className="material-symbols-outlined">settings</span>
