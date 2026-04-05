@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+/* 이 프로젝트만의 커스텀 테마(색상 및 폰트) 설정 */
+@theme {
+  --color-primary: #003d9b;
+  --color-primary-container: #0052cc;
+  --color-on-primary: #ffffff;
+  
+  --color-error: #ba1a1a;
+  
+  --color-background: #f8f9fa;
+  --color-surface-dim: #d9dadb;
+  
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f3f4f5;
+  --color-surface-container: #edeeef;
+  --color-surface-container-high: #e7e8e9;
+  --color-surface-container-highest: #e1e3e4;
+  
+  --color-on-surface: #191c1d;
+  --color-on-surface-variant: #434654;
+  
+  --color-outline: #737685;
+  --color-outline-variant: #c3c6d6;
+  
+  --color-secondary: #525f73;
+  --color-tertiary: #7b2600;
+
+  --font-headline: 'Manrope', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+/* 구글 머티리얼 아이콘 렌더링 설정 */
+.material-symbols-outlined { 
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; 
+  display: inline-block;
+  line-height: 1;
+}
