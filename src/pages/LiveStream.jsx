@@ -25,11 +25,12 @@ function LiveStream() {
       <main className="pt-20 px-4 max-w-5xl mx-auto h-screen flex flex-col pb-10">
         <div className="relative w-full grow bg-black rounded-2xl overflow-hidden shadow-2xl border border-slate-800 flex items-center justify-center mt-4">
           
-          {/* 👇 친구분의 ngrok 주소가 들어간 이미지 태그 👇 */}
+          {/* 👇 백엔드의 스트리밍 서버 주소로 👇 */}
           <img 
-            className="w-full h-full object-contain" 
-            src="https://succeedable-untabled-dewitt.ngrok-free.dev/" 
-            alt="실시간 CCTV 화면" 
+          className="w-full h-full object-contain" 
+          // baby-vision 백엔드나 MediaMTX 브릿지 서버를 가리키는 ngrok 주소
+          src="https://[스트리밍-NGROK-주소]/" 
+          alt="실시간 CCTV 화면" 
           />
           
         </div>

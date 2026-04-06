@@ -6,17 +6,53 @@ function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    const savedUser = JSON.parse(localStorage.getItem('eyeCatchUser'));
+  // src/pages/Login.jsx 수정 부분 (handleLogin 함수)
+const handleLogin = async (e) => {
+  e.preventDefault();
 
-    if (savedUser && savedUser.email === email && savedUser.password === password) {
-      alert(savedUser.name + '님, 환영합니다!');
-      navigate('/main');
+  try {
+    // 1. 로그인 요청을 통해 토큰 발급
+    const response = await fetch('https://[백엔드-NGROK-주소]/users/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'ngrok-skip-browser-warning': '69420'
+      },
+      // 백엔드의 UserLogin 스키마와 동일한 구조
+      body: JSON.stringify({ email: email, password: password }),
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      const accessToken = data.access_token;
+      
+      // 2. 발급받은 토큰을 로컬 스토리지에 저장
+      localStorage.setItem('eyeCatchToken', accessToken);
+
+      // 3. 토큰을 이용해 유저 정보(이름) 가져오기
+      const userResponse = await fetch('https://[백엔드-NGROK-주소]/users/me', {
+        headers: {
+          'Authorization': `Bearer ${accessToken}`,
+          'ngrok-skip-browser-warning': '69420'
+        }
+      });
+
+      if (userResponse.ok) {
+        const userData = await userResponse.json();
+        // 화면 표시에 사용할 유저 정보 저장 (Main.jsx 등에서 활용)
+        localStorage.setItem('eyeCatchUser', JSON.stringify(userData));
+        alert(`${userData.name}님, 환영합니다!`);
+        navigate('/main');
+      }
     } else {
-      alert('이메일 또는 비밀번호가 일치하지 않거나, 가입된 정보가 없습니다.');
+      const errorData = await response.json();
+      alert(`로그인 실패: ${errorData.detail || '이메일 또는 비밀번호가 일치하지 않습니다.'}`);
     }
-  };
+  } catch (error) {
+    console.error('Login Error:', error);
+    alert('서버와 통신할 수 없습니다.');
+  }
+};
 
   return (
     <div className="bg-background text-on-surface min-h-screen flex flex-col">

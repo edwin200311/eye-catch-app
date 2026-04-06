@@ -9,45 +9,42 @@ function Signup() {
   // ⏳ 로딩 상태 추가 (가입 버튼 연타 방지)
   const [isLoading, setIsLoading] = useState(false);
 
-  // 🚀 서버로 회원가입 정보 전송 (비동기 함수로 변경)
-  const handleSignup = async (e) => {
-    e.preventDefault();
-    setIsLoading(true); // 로딩 시작
+  // src/pages/Signup.jsx 수정 부분 (handleSignup 함수)
+const handleSignup = async (e) => {
+  e.preventDefault();
+  setIsLoading(true);
 
-    try {
-      // 백엔드(FastAPI) 엔드포인트로 POST 요청 보내기
-      const response = await fetch('https://succeedable-untabled-dewitt.ngrok-free.dev/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          // 💡 ngrok 무료 버전 사용 시 API 요청이 차단되는 것을 막아주는 마법의 헤더!
-          'ngrok-skip-browser-warning': '69420', 
-        },
-        // FastAPI 서버가 기대하는 데이터 형태로 전송 (필요시 백엔드 변수명에 맞게 수정하세요)
-        body: JSON.stringify({ 
-          name: name, 
-          email: email, 
-          password: password 
-        }),
-      });
+  try {
+    // 💡 [백엔드-NGROK-주소] 부분을 실제 발급받은 baby-vision 서버의 ngrok 주소로 변경하세요.
+    // 예: https://1234-abcd.ngrok-free.dev/users/register
+    const response = await fetch('https://[백엔드-NGROK-주소]/users/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'ngrok-skip-browser-warning': '69420', 
+      },
+      // 백엔드의 UserCreate 스키마와 동일한 구조
+      body: JSON.stringify({ 
+        name: name, 
+        email: email, 
+        password: password 
+      }),
+    });
 
-      if (response.ok) {
-        // 성공 시 (HTTP 상태 코드 200~299)
-        alert('회원가입이 완료되었습니다! 로그인 페이지로 이동합니다.');
-        navigate('/login');
-      } else {
-        // 실패 시 (이메일 중복 등 백엔드에서 에러를 뱉었을 때)
-        const errorData = await response.json();
-        alert(`가입 실패: ${errorData.detail || '입력하신 정보를 다시 확인해주세요.'}`);
-      }
-    } catch (error) {
-      // 서버가 꺼져있거나 인터넷 연결이 끊겼을 때
-      console.error('Signup Error:', error);
-      alert('서버와 통신할 수 없습니다. 잠시 후 다시 시도해주세요.');
-    } finally {
-      setIsLoading(false); // 로딩 종료
+    if (response.ok) {
+      alert('회원가입이 완료되었습니다! 로그인 페이지로 이동합니다.');
+      navigate('/login');
+    } else {
+      const errorData = await response.json();
+      alert(`가입 실패: ${errorData.detail || '입력하신 정보를 다시 확인해주세요.'}`);
     }
-  };
+  } catch (error) {
+    console.error('Signup Error:', error);
+    alert('서버와 통신할 수 없습니다. 잠시 후 다시 시도해주세요.');
+  } finally {
+    setIsLoading(false);
+  }
+};
 
   return (
     <div className="font-body text-on-surface min-h-screen flex flex-col bg-background">
