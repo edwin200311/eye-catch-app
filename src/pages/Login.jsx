@@ -12,7 +12,7 @@ const handleLogin = async (e) => {
 
   try {
     // 1. 로그인 요청을 통해 토큰 발급
-    const response = await fetch('https://[백엔드-NGROK-주소]/users/login', {
+    const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/users/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -30,7 +30,7 @@ const handleLogin = async (e) => {
       localStorage.setItem('eyeCatchToken', accessToken);
 
       // 3. 토큰을 이용해 유저 정보(이름) 가져오기
-      const userResponse = await fetch('https://[백엔드-NGROK-주소]/users/me', {
+      const userResponse = await fetch(`${import.meta.env.VITE_API_BASE_URL}/users/me`, {
         headers: {
           'Authorization': `Bearer ${accessToken}`,
           'ngrok-skip-browser-warning': '69420'

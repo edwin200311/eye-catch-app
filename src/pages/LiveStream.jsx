@@ -29,7 +29,7 @@ function LiveStream() {
           <img 
           className="w-full h-full object-contain" 
           // baby-vision 백엔드나 MediaMTX 브릿지 서버를 가리키는 ngrok 주소
-          src="https://[스트리밍-NGROK-주소]/" 
+          src={import.meta.env.VITE_API_BASE_URL}
           alt="실시간 CCTV 화면" 
           />
           

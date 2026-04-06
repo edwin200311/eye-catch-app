@@ -17,7 +17,7 @@ const handleSignup = async (e) => {
   try {
     // 💡 [백엔드-NGROK-주소] 부분을 실제 발급받은 baby-vision 서버의 ngrok 주소로 변경하세요.
     // 예: https://1234-abcd.ngrok-free.dev/users/register
-    const response = await fetch('https://[백엔드-NGROK-주소]/users/register', {
+    const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/users/register`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
